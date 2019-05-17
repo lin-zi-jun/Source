@@ -36,9 +36,9 @@ void setup() {
   //M5.Lcd.fastSetup(); // Prepare plot window range for fast pixel plotting
 }
 
-void loop()
+void loop()                       //下雨
 {
-  unsigned long t0 = micros();
+  unsigned long t0 = micros();    //返回us
   uint8_t spawnDepthVariation = 255;
 
   for(int i = 0; i < NSTARS; ++i)

@@ -64,8 +64,8 @@ void setup() {
   // Serial.begin(115200);
   
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLUE);
-  M5.Lcd.fillRect(0,0,320,TEXT_HEIGHT, TFT_BLUE);
-  M5.Lcd.drawCentreString(" Serial Terminal - 115200 baud ",320/2,0,2);
+  M5.Lcd.fillRect(0,0,320,TEXT_HEIGHT, TFT_BLUE);                             //画一个蓝色方框
+  M5.Lcd.drawCentreString(" Serial Terminal - 115200 baud ",320/2,0,2);       //中心位置
 
   // Change colour for scrolling zone text
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);

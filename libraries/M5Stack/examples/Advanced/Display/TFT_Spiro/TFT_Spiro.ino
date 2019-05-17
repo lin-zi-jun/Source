@@ -18,7 +18,7 @@ void setup()
   // M5.Lcd.setRotation(3);
 }
 
-void loop()
+void loop()             //圈圈组成的图形
 {
   runTime = millis();
 

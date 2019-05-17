@@ -488,7 +488,7 @@ class LoRaWanClass
         short waitForResponse(char* response, unsigned char timeout = DEFAULT_TIMEOUT);
         short sendCommandAndWaitForResponse(char* command, char *response, unsigned char timeout = DEFAULT_TIMEOUT);
 
-        char _buffer[256];
+        char _buffer[256];     //接收缓冲
         short debug;
         _physical_type_t myType;
 

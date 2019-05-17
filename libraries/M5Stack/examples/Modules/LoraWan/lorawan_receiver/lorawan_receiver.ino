@@ -7,7 +7,7 @@
 
 #define SerialUSB Serial
 
-unsigned char buffer[128] = {
+unsigned char buffer[128] = {     //数据接收缓冲
     0,
 };
 uint8_t flag_test_868 = 0;
@@ -24,9 +24,9 @@ void key_scan(void *arg)
 
 void setup(void)
 {
-  M5.begin();
-  SerialUSB.begin(9600);
-  lora.init();
+  M5.begin();      //初始化M5设备
+  SerialUSB.begin(9600);      //设置串口
+  lora.init();              //模块初始化
   delay(2000); // must delay for lorawan power on
   lora.initP2PMode(433, SF12, BW500, 8, 8, 20);
   M5.Lcd.setTextFont(2);
@@ -50,7 +50,7 @@ void loop(void)
     flag_test_868 = 0;
     M5.Lcd.setTextColor(BLUE);
     init_433();
-    send_data();
+    send_data();    //串口2发送 hello
     delay(300);
     Serial2.print("AT+TEST=RXLRPKT\r\n");
         M5.Lcd.println("433M Init and Send \"Hello World\"...");

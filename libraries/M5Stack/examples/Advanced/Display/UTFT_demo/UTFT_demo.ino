@@ -35,36 +35,41 @@ void loop()
   int x, x2;
   int y, y2;
   int r;
-  runTime = millis();
+  runTime = millis();                     //返回CPU当前时间（us）
 // Clear the screen and draw the frame
-  M5.Lcd.fillScreen(TFT_BLACK);
+  M5.Lcd.fillScreen(TFT_BLACK);               //画一个大长方形
 
 
-  M5.Lcd.fillRect(0, 0, 319, 14,TFT_RED);
+  M5.Lcd.fillRect(0, 0, 319, 14,TFT_RED);         //上画一条横杠
 
-  M5.Lcd.fillRect(0, 226, 319, 14,TFT_GREY);
+  M5.Lcd.fillRect(0, 226, 319, 14,TFT_GREY);      //下画一条横杠
 
-  M5.Lcd.setTextColor(TFT_BLACK,TFT_RED);
-  M5.Lcd.drawCentreString("* TFT_eSPI *", 160, 4, 1);
+  M5.Lcd.setTextColor(TFT_BLACK,TFT_RED);         //字的颜色与背景
+  M5.Lcd.drawCentreString("* TFT_eSPI *", 160, 4, 1);    //字 x(横坐标)    y（丛坐标）  字的大小    
   M5.Lcd.setTextColor(TFT_YELLOW,TFT_GREY);
-  M5.Lcd.drawCentreString("Adapted by Bodmer", 160, 228,1);
+  M5.Lcd.drawCentreString("Adapted by Bodmer", 160, 228,1);   //字 x(横坐标)    y（丛坐标）  字的大小  
 
-  M5.Lcd.drawRect(0, 14, 319, 211, TFT_BLUE);
+  M5.Lcd.drawRect(0, 14, 319, 211, TFT_BLUE);       //画一个线框
 
 // Draw crosshairs
-  M5.Lcd.drawLine(159, 15, 159, 224,TFT_BLUE);
+  M5.Lcd.drawLine(159, 15, 159, 224,TFT_BLUE);      //画线  起点坐标与终点坐标
   M5.Lcd.drawLine(1, 119, 318, 119,TFT_BLUE);
   for (int i=9; i<310; i+=10)
     M5.Lcd.drawLine(i, 117, i, 121,TFT_BLUE);
   for (int i=19; i<220; i+=10)
     M5.Lcd.drawLine(157, i, 161, i,TFT_BLUE);
 
-// Draw sin-, cos- and tan-lines  
+
+
+
+
+
+// Draw sin-, cos- and tan-lines                    //描绘数学函数
   M5.Lcd.setTextColor(TFT_CYAN);
   M5.Lcd.drawString("Sin", 5, 15,2);
   for (int i=1; i<318; i++)
   {
-    M5.Lcd.drawPixel(i,119+(sin(((i*1.13)*3.14)/180)*95),TFT_CYAN);
+    M5.Lcd.drawPixel(i,119+(sin(((i*1.13)*3.14)/180)*95),TFT_CYAN);    //描绘像素点
   }
   M5.Lcd.setTextColor(TFT_RED);
   M5.Lcd.drawString("Cos", 5, 30,2);
@@ -81,7 +86,9 @@ void loop()
 
   delay(1000);
 
-  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
+
+
+  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);                //描绘移动的线
 
   M5.Lcd.drawLine(159, 15, 159, 224,TFT_BLUE);
   M5.Lcd.drawLine(1, 119, 318, 119,TFT_BLUE);
@@ -109,7 +116,7 @@ int col = 0;
 
   M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
 
-// Draw some filled rectangles
+// Draw some filled rectangles            //描绘填充矩形
   for (int i=1; i<6; i++)
   {
     switch (i)
@@ -137,7 +144,7 @@ int col = 0;
 
   M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
 
-// Draw some filled, rounded rectangles
+// Draw some filled, rounded rectangles     //描绘填充的圆角矩形
   for (int i=1; i<6; i++)
   {
     switch (i)
@@ -163,7 +170,10 @@ int col = 0;
   
   delay(1000);
 
-  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
+
+
+
+  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);            //填充圆
 
 // Draw some filled circles
   for (int i=1; i<6; i++)
@@ -193,7 +203,7 @@ int col = 0;
 
   M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
 
-// Draw some lines in a pattern
+// Draw some lines in a pattern                         //画线
 
   for (int i=15; i<224; i+=5)
   {
@@ -220,7 +230,7 @@ int col = 0;
 
   M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
 
-// Draw some random circles
+// Draw some random circles                       //画随机圆
   for (int i=0; i<100; i++)
   {
     x=32+random(256);
@@ -233,10 +243,10 @@ int col = 0;
 
   M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
 
-// Draw some random rectangles
+// Draw some random rectangles                   //画随机框框
   for (int i=0; i<100; i++)
   {
-    x=2+random(316);
+    x=2+random(316);                  //返回随机值，可定制最大最小
     y=16+random(207);
     x2=2+random(316);
     y2=16+random(207);
@@ -252,7 +262,7 @@ int col = 0;
   delay(1000);
 
 
-  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);
+  M5.Lcd.fillRect(1,15,317,209,TFT_BLACK);                            //随机圆形和矩形
 
 // Draw some random rounded rectangles
   for (int i=0; i<100; i++)
@@ -280,7 +290,7 @@ int col = 0;
 
  //randomSeed(1234);
  int colour = 0;
- for (int i=0; i<100; i++)
+ for (int i=0; i<100; i++)                            //随机线
   {
     x=2+random(316);
     y=16+random(209);
@@ -296,7 +306,7 @@ int col = 0;
 
   // This test has been modified as it takes more time to calculate the random numbers
   // than to draw the pixels (3 seconds to produce 30,000 randoms)!
-  for (int i=0; i<10000; i++)
+  for (int i=0; i<10000; i++)                             //画一万个点
   {
     M5.Lcd.drawPixel(2+random(316), 16+random(209),random(0xFFFF));
   }

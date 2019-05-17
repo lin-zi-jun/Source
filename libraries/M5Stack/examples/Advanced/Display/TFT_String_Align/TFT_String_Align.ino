@@ -40,10 +40,10 @@ void loop() {
   for(byte datum = 0; datum < 9; datum++) {
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     
-    M5.Lcd.setTextDatum(datum);
+    M5.Lcd.setTextDatum(datum);     //设置基准点
     
-    M5.Lcd.drawNumber(88,160,120,8);
-    M5.Lcd.fillCircle(160,120,5,TFT_RED);
+    M5.Lcd.drawNumber(88,160,120,8);          //描绘一个数字
+    M5.Lcd.fillCircle(160,120,5,TFT_RED);     //画小圆点
     
     M5.Lcd.setTextDatum(MC_DATUM);
     
@@ -93,7 +93,7 @@ void loop() {
   delay(1000);
   M5.Lcd.fillScreen(TFT_BLACK);
   test = 9999999;
-  M5.Lcd.drawFloat(test, 1, 160, 180, 4);
+  M5.Lcd.drawFloat(test, 1, 160, 180, 4);                 //描写小数点
   delay(1000);
   
   M5.Lcd.fillCircle(160,180,5,TFT_YELLOW);

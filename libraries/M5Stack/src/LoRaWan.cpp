@@ -838,19 +838,19 @@ short LoRaWanClass::receivePacketP2PMode(unsigned char *buffer, short length, sh
 
     while(SerialLoRa.available())SerialLoRa.read();
     memset(_buffer, 0, BEFFER_LENGTH_MAX);
-    readBuffer(_buffer, BEFFER_LENGTH_MAX, timeout);
+    readBuffer(_buffer, BEFFER_LENGTH_MAX, timeout);           //读取数据
 
-    ptr = strstr(_buffer, "LEN");
-    if(ptr)number = atoi(ptr + 4);
+    ptr = strstr(_buffer, "LEN");       //长度
+    if(ptr)number = atoi(ptr + 4);  
     else number = 0;
 
     if(number <= 0)return 0;
 
-    ptr = strstr(_buffer, "RSSI:");
+    ptr = strstr(_buffer, "RSSI:");         //信号强度
     if(ptr)*rssi = atoi(ptr + 5);
     else *rssi = -255;
 
-    ptr = strstr(_buffer, "RX \"");
+    ptr = strstr(_buffer, "RX \"");          //数据接收
     if(ptr)
     {
         ptr += 4;
